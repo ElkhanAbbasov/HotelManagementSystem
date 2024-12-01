@@ -9,6 +9,8 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class loginPage extends JFrame {
 
@@ -72,6 +74,12 @@ public class loginPage extends JFrame {
 		contentPane.add(passwordLabel);
 		
 		JButton loginButton = new JButton("Login");
+		loginButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				dispose();
+			}
+		});
 		loginButton.setFont(new Font("Mongolian Baiti", Font.BOLD, 27));
 		loginButton.setBounds(311, 364, 262, 57);
 		contentPane.add(loginButton);
