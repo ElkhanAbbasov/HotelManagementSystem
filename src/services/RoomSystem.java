@@ -9,7 +9,7 @@ public class RoomSystem {
     private HashSet<Room> reserveList = new HashSet<>();
 
     public boolean addReserve(int roomNumber, boolean isOccupied, int floorNumber, String[] members, String roomType) {
-        Room room = new OneRoom(roomNumber, isOccupied, 100.0, floorNumber, roomType, members, new String[]{"Single"}, "", "");
+        Room room = new OneRoom(roomNumber, isOccupied, 100.0, floorNumber, roomType, members, roomType, "", "");
         return reserveList.add(room);
     }
 
