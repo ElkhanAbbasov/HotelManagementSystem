@@ -1,27 +1,45 @@
 package Models;
 
 public class OneRoom extends Room {
-    private String[] bedType;
-
-    public OneRoom(int roomNumber, boolean isOccupied, double price, int floorNumber, String roomType, String[] members, String[] bedType, String startDate, String endDate) {
+    private String[] bedType = {"Futon", "Water", "Round"};
+    private String bed;
+    
+    public OneRoom(int roomNumber, boolean isOccupied, double price, int floorNumber, String roomType, String[] members, String bed, String startDate, String endDate) {
         super(roomNumber, isOccupied, price, floorNumber, roomType, members);
-        this.bedType = bedType;
+        this.bed = bed;
         this.startDate = startDate;
         this.endDate = endDate;
     }
 
     @Override
     public boolean checkAvailability() {
-        return !isOccupied;
+        return !isOccupied();
     }
 
     @Override
     public double calculateFee() {
-        return price; // Example logic
+    	if(bed.equalsIgnoreCase(bedType[0])) {
+        	price = (super.findNumberOfDays()) * 60;
+        	return price;
+        }else if(bed.equalsIgnoreCase(bedType[1])) {
+        		price = (super.findNumberOfDays()) * 55;
+        		return price;
+        	}else if(bed.equalsIgnoreCase(bedType[2])) {
+        		price = (super.findNumberOfDays()) * 65;
+        		return price;
+        	}
+        return 0; // Example logic
     }
 
     @Override
     public String toString() {
         return super.toString() + " OneRoom{" + "bedType=" + String.join(", ", bedType) + '}';
     }
+
+	@Override
+	public boolean discount() {
+		// TODO Auto-generated method stub
+		
+		return false;
+	}
 }
