@@ -1,5 +1,7 @@
 package Models;
 
+import java.util.Objects;
+
 import interfaces.RoomInterface;
 
 public abstract class Room implements RoomInterface {
@@ -45,18 +47,32 @@ public abstract class Room implements RoomInterface {
                 '}';
     }
 
-    @Override
-    public int hashCode() {
-        return Integer.hashCode(getRoomNumber());
-    }
+   
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
-        Room room = (Room) obj;
-        return getRoomNumber() == room.getRoomNumber();
-    }
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(roomNumber);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Room other = (Room) obj;
+		return roomNumber == other.roomNumber;
+	}
 
 	public boolean isOccupied() {
 		return isOccupied;
@@ -73,4 +89,11 @@ public abstract class Room implements RoomInterface {
 	public void setRoomNumber(int roomNumber) {
 		this.roomNumber = roomNumber;
 	}
+	
+	public int findNumberOfDays() {
+		String[] startArr = startDate.split(".");
+		String[] endArr = endDate.split(".");
+		int days = Integer.parseInt(startArr[0]) - Integer.parseInt(endArr[0]);
+		return days;
+ 	}
 }
