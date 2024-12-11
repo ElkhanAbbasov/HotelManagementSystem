@@ -68,4 +68,14 @@ public class RoomSystem {
 		return output;
 		
 	}
+    
+    public static Room getSelectedRoom(int roomNumber) {
+        for (Room room : reserveList) {
+            if (room.getRoomNumber() == roomNumber) {
+                return room;
+            }
+        }
+        return null;
+    }
+
 }
