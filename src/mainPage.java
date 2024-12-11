@@ -58,7 +58,7 @@ public class mainPage extends JFrame {
 		contentPane.add(btnShowEmptyRooms);
 		
 		JTextArea textArea = new JTextArea();
-		textArea.setBounds(90, 25, 618, 400);
+		textArea.setBounds(90, 42, 618, 400);
 		contentPane.add(textArea);
 	}
 	private static class __Tmp {

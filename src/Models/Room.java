@@ -11,7 +11,7 @@ public abstract class Room implements RoomInterface, Comparable<Room>{
     protected int floorNumber;
     protected String roomType;
     protected String[] members;
-    protected String[] fridge;
+    protected String[] fridge;	
     protected String startDate;
     protected String endDate;
 

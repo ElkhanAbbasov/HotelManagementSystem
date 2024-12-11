@@ -8,7 +8,6 @@ public class RoomPriceComparator implements Comparator<Room>{
 
 	@Override
 	public int compare(Room o1, Room o2) {
-		// TODO Auto-generated method stub
 		return Double.compare(o2.getPrice(), o1.getPrice());
 	}
 
