@@ -1,11 +1,13 @@
 package Models;
 
+import java.util.Arrays;
+
 public class OneRoom extends Room {
     private String[] bedType = {"Futon", "Water", "Round"};
     private String bed;
     
-    public OneRoom(int roomNumber, boolean isOccupied, double price, int floorNumber, String roomType, String[] members, String bed, String startDate, String endDate) {
-        super(roomNumber, isOccupied, price, floorNumber, roomType, members);
+    public OneRoom(int roomNumber, boolean isOccupied, int floorNumber, String roomType, String[] members, String bed, String startDate, String endDate) {
+        super(roomNumber, isOccupied, floorNumber, roomType, members);
         this.bed = bed;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -28,9 +30,9 @@ public class OneRoom extends Room {
     }
 
     @Override
-    public String toString() {
-        return super.toString() + " OneRoom{" + "bedType=" + String.join(", ", bedType) + '}';
-    }
+	public String toString() {
+		return super.toString() + "OneRoom [bedType=" + Arrays.toString(bedType) + ", bed=" + bed + "]\n";
+	}
 
 	@Override
 	public boolean discount() {
