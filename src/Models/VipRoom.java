@@ -3,7 +3,7 @@ package Models;
 import java.util.ArrayList;
 
 public class VipRoom extends Room {
-    private ArrayList<Butler> butlers= new ArrayList<Butler>();;
+    private ArrayList<Butler> butlers= new ArrayList<Butler>();
     private int butlerCount;
     private String butlerType;
     
