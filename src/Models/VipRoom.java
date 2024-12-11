@@ -11,16 +11,11 @@ public class VipRoom extends Room {
     }
 
     public boolean checkDinnerService() {
-        return hasAButler != null; // Example logic
+        return hasAButler != null; 
     }
 
     public void reservePrivateEvent() {
-        // Example logic
-    }
-
-    @Override
-    public boolean checkAvailability() {
-        return !isOccupied;
+        
     }
 
     @Override

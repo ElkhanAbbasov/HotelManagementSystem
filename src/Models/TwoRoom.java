@@ -12,10 +12,6 @@ public class TwoRoom extends Room {
         this.endDate = endDate;
     }
 
-    @Override
-    public boolean checkAvailability() {
-        return !isOccupied();
-    }
 
     @Override
     public double calculateFee() {

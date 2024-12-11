@@ -24,8 +24,6 @@ public abstract class Room implements RoomInterface {
         this.members = members;
     }
 
-    public abstract boolean checkAvailability();
-
     public void releaseRoom() {
         this.setOccupied(false);
     }

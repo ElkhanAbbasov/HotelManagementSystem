@@ -11,10 +11,6 @@ public class OneRoom extends Room {
         this.endDate = endDate;
     }
 
-    @Override
-    public boolean checkAvailability() {
-        return !isOccupied();
-    }
 
     @Override
     public double calculateFee() {
@@ -28,7 +24,7 @@ public class OneRoom extends Room {
         		price = (super.findNumberOfDays()) * 65;
         		return price;
         	}
-        return 0; // Example logic
+        return 0;
     }
 
     @Override
