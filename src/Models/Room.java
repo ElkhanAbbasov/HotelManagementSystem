@@ -5,8 +5,8 @@ import java.util.Objects;
 import interfaces.RoomInterface;
 
 public abstract class Room implements RoomInterface {
-    private int roomNumber;
-    private boolean isOccupied;
+    protected int roomNumber;
+    protected boolean isOccupied;
     protected double price;
     protected int floorNumber;
     protected String roomType;

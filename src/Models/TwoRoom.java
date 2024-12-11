@@ -34,11 +34,19 @@ public class TwoRoom extends Room {
 
 	@Override
 	public boolean discount() {
-		if(super.findNumberOfDays() > 5) {
-			double discount = (super.findNumberOfDays() - 5) * 0.20;
-			price *= discount;
-			return true;
+		int diff = super.findNumberOfDays();
+		if (diff > 7 && diff < 10) {
+			price *= 0.85;
 		}
-		return false;
+		else if (diff < 15) {
+			price *= 0.75;
+		}
+		else if (diff < 20) {
+			price *= 0.65;
+		}
+		else {
+			return false;
+		}
+		return true;
 	}
 }

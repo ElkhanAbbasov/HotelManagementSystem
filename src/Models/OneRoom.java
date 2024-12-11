@@ -38,8 +38,19 @@ public class OneRoom extends Room {
 
 	@Override
 	public boolean discount() {
-		// TODO Auto-generated method stub
-		
-		return false;
+		int diff = super.findNumberOfDays();
+		if (diff > 7 && diff < 10) {
+			price *= 0.9;
+		}
+		else if (diff < 15) {
+			price *= 0.8;
+		}
+		else if (diff < 20) {
+			price *= 0.7;
+		}
+		else {
+			return false;
+		}
+		return true;
 	}
 }
