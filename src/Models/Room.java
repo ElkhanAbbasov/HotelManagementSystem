@@ -4,10 +4,10 @@ import java.util.Objects;
 
 import interfaces.RoomInterface;
 
-public abstract class Room implements RoomInterface {
+public abstract class Room implements RoomInterface, Comparable<Room>{
     protected int roomNumber;
     protected boolean isOccupied;
-    protected double price;
+    protected double price = 0;
     protected int floorNumber;
     protected String roomType;
     protected String[] members;
@@ -15,7 +15,7 @@ public abstract class Room implements RoomInterface {
     protected String startDate;
     protected String endDate;
 
-    public Room(int roomNumber, boolean isOccupied, double price, int floorNumber, String roomType, String[] members) {
+    public Room(int roomNumber, boolean isOccupied, int floorNumber, String roomType, String[] members) {
         this.setRoomNumber(roomNumber);
         this.setOccupied(isOccupied);
         this.price = price;
@@ -89,9 +89,20 @@ public abstract class Room implements RoomInterface {
 	}
 	
 	public int findNumberOfDays() {
-		String[] startArr = startDate.split(".");
-		String[] endArr = endDate.split(".");
-		int days = Integer.parseInt(startArr[0]) - Integer.parseInt(endArr[0]);
+		String[] startArr = startDate.split("\\.");
+		String[] endArr = endDate.split("\\.");
+		int days = 0;
+		if(startArr[1] == endArr[1]) {
+			days = Integer.parseInt(startArr[0]) - Integer.parseInt(endArr[0]);
+		}else {
+			days += 30 * (Integer.parseInt(startArr[1]) - Integer.parseInt(endArr[1]));
+			days -= Integer.parseInt(startArr[0]) - Integer.parseInt(endArr[0]);
+		}
+		
 		return days;
  	}
+	
+	public int compareTo(Room o) {
+		return Double.compare(this.price, o.price); 
+	}
 }
