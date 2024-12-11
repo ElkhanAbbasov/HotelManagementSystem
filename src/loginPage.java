@@ -17,6 +17,7 @@ public class loginPage extends JFrame {
 	private JPanel contentPane;
 	private JTextField textFieldEmail;
 	private JTextField textFieldPassword;
+	int a = 25;
 
 	/**
 	 * Launch the application.
