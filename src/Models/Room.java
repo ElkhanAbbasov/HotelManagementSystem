@@ -3,8 +3,8 @@ package Models;
 import interfaces.RoomInterface;
 
 public abstract class Room implements RoomInterface {
-    protected int roomNumber;
-    protected boolean isOccupied;
+    private int roomNumber;
+    private boolean isOccupied;
     protected double price;
     protected int floorNumber;
     protected String roomType;
@@ -14,8 +14,8 @@ public abstract class Room implements RoomInterface {
     protected String endDate;
 
     public Room(int roomNumber, boolean isOccupied, double price, int floorNumber, String roomType, String[] members) {
-        this.roomNumber = roomNumber;
-        this.isOccupied = isOccupied;
+        this.setRoomNumber(roomNumber);
+        this.setOccupied(isOccupied);
         this.price = price;
         this.floorNumber = floorNumber;
         this.roomType = roomType;
@@ -25,7 +25,7 @@ public abstract class Room implements RoomInterface {
     public abstract boolean checkAvailability();
 
     public void releaseRoom() {
-        this.isOccupied = false;
+        this.setOccupied(false);
     }
 
     public abstract double calculateFee();
@@ -37,8 +37,8 @@ public abstract class Room implements RoomInterface {
     @Override
     public String toString() {
         return "Room{" +
-                "roomNumber=" + roomNumber +
-                ", isOccupied=" + isOccupied +
+                "roomNumber=" + getRoomNumber() +
+                ", isOccupied=" + isOccupied() +
                 ", price=" + price +
                 ", floorNumber=" + floorNumber +
                 ", roomType='" + roomType + '\'' +
@@ -47,7 +47,7 @@ public abstract class Room implements RoomInterface {
 
     @Override
     public int hashCode() {
-        return Integer.hashCode(roomNumber);
+        return Integer.hashCode(getRoomNumber());
     }
 
     @Override
@@ -55,6 +55,22 @@ public abstract class Room implements RoomInterface {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
         Room room = (Room) obj;
-        return roomNumber == room.roomNumber;
+        return getRoomNumber() == room.getRoomNumber();
     }
+
+	public boolean isOccupied() {
+		return isOccupied;
+	}
+
+	public void setOccupied(boolean isOccupied) {
+		this.isOccupied = isOccupied;
+	}
+
+	public int getRoomNumber() {
+		return roomNumber;
+	}
+
+	public void setRoomNumber(int roomNumber) {
+		this.roomNumber = roomNumber;
+	}
 }
