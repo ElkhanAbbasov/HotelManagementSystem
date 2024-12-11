@@ -1,31 +1,44 @@
 package Models;
 
-public class VipRoom extends Room {
-    private Butler hasAButler;
+import java.util.ArrayList;
 
-    public VipRoom(int roomNumber, boolean isOccupied, double price, int floorNumber, String roomType, String[] members, String[] fridge, String startDate, String endDate) {
-        super(roomNumber, isOccupied, price, floorNumber, roomType, members);
-        this.fridge = fridge;
+public class VipRoom extends Room {
+    private ArrayList<Butler> butlers= new ArrayList<Butler>();;
+    private int butlerCount;
+    private String butlerType;
+    
+
+    public VipRoom(int roomNumber, boolean isOccupied, int floorNumber, String roomType, String[] members, String startDate, String endDate, int butlerCount, String butlerType) {
+        super(roomNumber, isOccupied, floorNumber, roomType, members);
+       
         this.startDate = startDate;
         this.endDate = endDate;
+        this.butlerCount = butlerCount;
+        this.butlerType = butlerType;
     }
 
-    public boolean checkDinnerService() {
-        return hasAButler != null; 
-    }
+    @Override
+	public String toString() {
+		return super.toString() + "VipRoom [butlers=" + butlers + ", butlerCount=" + butlerCount + ", butlerType=" + butlerType + "]";
+	}
 
-    public void reservePrivateEvent() {
-        
+	public void reserveButlers() {
+    	Butler b = null;
+        for(int i = 0; i < butlerCount; i++) {
+        	b = new Butler(butlerType);
+        	butlers.add(b);
+        }
     }
 
     @Override
     public double calculateFee() {
         double totalFee = price; // Start with the base price of the room
-
-        if (hasAButler != null) { 
-            totalFee += hasAButler.getPrice(); // Add the butler's price if assigned
+        for(int i = 0; i < butlers.size(); i++) {
+        	butlers.get(i).calculatePrice();
+        	totalFee += butlers.get(i).getPrice();
         }
-
+        
+        price = totalFee;
         return totalFee; // Return the total fee
     }
 
