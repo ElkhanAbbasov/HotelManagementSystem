@@ -5,16 +5,22 @@ public class Butler {
     private String[] type = {"Party", "Drink", "Concierge"};
     private String typeOfButler;
     private double price;
-    public Butler(String typeOfButler, double price) {
+    public Butler(String typeOfButler) {
 		this.typeOfButler = typeOfButler;
-		this.price = price;
+
 	}
     
 	
 
-    public double calculatePrice(String serviceType) {
-        // Example logic based on service type
-        return price;
+    public void calculatePrice() {
+        
+        if(typeOfButler.equals("Party")) {
+        	price = 300;
+        }else if(typeOfButler.equals("Drink")) {
+        	price = 200;
+        }else if(typeOfButler.equals("Concierge")) {
+        	price = 150;
+        }
     }
 
   
