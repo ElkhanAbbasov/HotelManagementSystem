@@ -14,13 +14,13 @@ public class RoomSystem {
     }
 
     public boolean removeReserve(int roomNumber) {
-        return reserveList.removeIf(room -> room.roomNumber == roomNumber);
+        return reserveList.removeIf(room -> room.getRoomNumber() == roomNumber);
     }
 
     public String getAvailableRooms() {
         StringBuilder availableRooms = new StringBuilder();
         for (Room room : reserveList) {
-            if (!room.isOccupied) {
+            if (!room.isOccupied()) {
                 availableRooms.append(room.toString()).append("\n");
             }
         }
