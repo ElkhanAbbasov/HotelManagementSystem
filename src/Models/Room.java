@@ -36,7 +36,7 @@ public abstract class Room implements RoomInterface, Comparable<Room>{
 
     @Override
     public String toString() {
-        return  "Room Number: " + getRoomNumber() +
+        return  "\nRoom Number: " + getRoomNumber() +
                 "\nIs Occupied: " + isOccupied() +
                 "\nPrice: " + price +
                 "\nFloor Number: " + floorNumber +

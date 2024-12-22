@@ -1,5 +1,7 @@
 package GUI;
 import java.awt.EventQueue;
+import services.HotelMain;
+
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -67,23 +69,40 @@ public class loginPage extends JFrame {
 		
 		JLabel emailLabel = new JLabel("Email");
 		emailLabel.setFont(new Font("Mongolian Baiti", Font.BOLD, 35));
-		emailLabel.setBounds(345, 79, 244, 50);
+		emailLabel.setBounds(381, 90, 244, 50);
 		contentPane.add(emailLabel);
 		
 		JLabel passwordLabel = new JLabel("Password");
 		passwordLabel.setFont(new Font("Mongolian Baiti", Font.BOLD, 35));
-		passwordLabel.setBounds(334, 223, 244, 50);
+		passwordLabel.setBounds(351, 225, 244, 50);
 		contentPane.add(passwordLabel);
 		
 		JButton loginButton = new JButton("Login");
 		loginButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				setVisible(false);
-				dispose();
-			}
+		    public void actionPerformed(ActionEvent e) {
+		        String email = textFieldEmail.getText();
+		        String password = textFieldPassword.getText();
+		        
+		        if (email.isEmpty() || password.isEmpty()) {
+		            System.out.println("Please fill all fields.");
+		        } else if (Database.loginUser(email, password)) {
+		            System.out.println("Login successful!");
+		            setVisible(false); // Hide the login page
+		            dispose();         // Dispose of the current frame
+
+		            // Redirect to HotelMain logic
+		            services.HotelMain.main(null); 
+		        } else {
+		            System.out.println("Invalid email or password.");
+		        }
+		    }
 		});
+
+
+
+
 		loginButton.setFont(new Font("Mongolian Baiti", Font.BOLD, 27));
-		loginButton.setBounds(311, 364, 262, 57);
+		loginButton.setBounds(310, 364, 262, 57);
 		contentPane.add(loginButton);
 	}
 }

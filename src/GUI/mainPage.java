@@ -36,9 +36,10 @@ public class mainPage extends JFrame {
 	 * Create the frame.
 	 */
 	public mainPage() {
+		setTitle("Main Page");
 		JTextArea textArea = new JTextArea();
 		
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 800, 550);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -53,7 +54,7 @@ public class mainPage extends JFrame {
 				ur.setVisible(true);
 			}
 		});
-		btnAddNewRoom.setBounds(90, 445, 180, 45);
+		btnAddNewRoom.setBounds(90, 445, 160, 45);
 		contentPane.add(btnAddNewRoom);
 		
 		JButton btnShowAllRooms = new JButton("Show All Reservations");
@@ -63,7 +64,7 @@ public class mainPage extends JFrame {
 				 System.out.println("salam");
 			}
 		});
-		btnShowAllRooms.setBounds(275, 445, 160, 45);
+		btnShowAllRooms.setBounds(260, 445, 160, 45);
 		contentPane.add(btnShowAllRooms);
 		
 		JButton btnShowEmptyRooms = new JButton("Sort by Price");
@@ -72,7 +73,7 @@ public class mainPage extends JFrame {
 				textArea.setText(RoomSystem.sortByPrice());
 			}
 		});
-		btnShowEmptyRooms.setBounds(447, 445, 122, 45);
+		btnShowEmptyRooms.setBounds(430, 445, 129, 45);
 		contentPane.add(btnShowEmptyRooms);
 		
 		
@@ -86,7 +87,7 @@ public class mainPage extends JFrame {
 				sp.setVisible(true);
 			}
 		});
-		btnNewButton.setBounds(569, 447, 139, 43);
+		btnNewButton.setBounds(569, 446, 139, 43);
 		contentPane.add(btnNewButton);
 	}
 	private static class __Tmp {
