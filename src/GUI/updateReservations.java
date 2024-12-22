@@ -100,6 +100,13 @@ public class updateReservations extends JFrame {
         chckbxNewCheckBox_1.setVisible(false);
 
         JButton vipButton = new JButton("Add");
+        vipButton.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		buts[nums]= (String) comboBox_1.getSelectedItem();
+        		nums++;
+        		
+        	}
+        });
         vipButton.setBounds(599, 182, 108, 29);
         contentPane.add(vipButton);
         vipButton.setVisible(false);

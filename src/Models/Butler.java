@@ -16,10 +16,18 @@ public class Butler {
         
         if(typeOfButler.equals("Party")) {
         	price = 300;
-        }else if(typeOfButler.equals("Drink")) {
+        }
+        
+        else if(typeOfButler.equals("Drink")) {
         	price = 200;
-        }else if(typeOfButler.equals("Concierge")) {
+        }
+        
+        else if(typeOfButler.equals("Concierge")) {
         	price = 150;
+        }
+        
+        else {
+        	price = 200;
         }
     }
 

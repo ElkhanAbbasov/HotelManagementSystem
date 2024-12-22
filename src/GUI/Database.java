@@ -20,7 +20,7 @@ public class Database {
         }
     }
 
-    private static void initializeDatabase() {
+    static void initializeDatabase() {
         String sql = "CREATE TABLE IF NOT EXISTS users ("
                    + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
                    + "email TEXT UNIQUE, "

@@ -17,6 +17,7 @@ public class registerPage extends JFrame {
     public static void main(String[] args) {
         EventQueue.invokeLater(() -> {
             try {
+            	Database.initializeDatabase();
                 registerPage frame = new registerPage();
                 frame.setVisible(true);
             } catch (Exception e) {

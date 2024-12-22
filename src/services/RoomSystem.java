@@ -27,7 +27,9 @@ public class RoomSystem {
     		reserveList.add(room);
     	}else if(roomType.equals("VipRoom")) {
     		VipRoom room = new VipRoom(roomNumber, isOccupied, floorNumber,roomType, members, startDate, endDate, butlerCount, butlerType);
+    		room.reserveButlers();
     		room.calculateFee();
+    		
     		reserveList.add(room);
     	}
     	

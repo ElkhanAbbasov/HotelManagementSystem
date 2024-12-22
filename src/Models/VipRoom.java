@@ -18,14 +18,16 @@ public class VipRoom extends Room {
     }
 
     @Override
-	public String toString() {
-    	String all = "Butlers:\n";
+    public String toString() {
+    	String all = super.toString()  + "Butlers:\n";
     	for(int i = 0; i < butlers.size(); i++) {
-    		all += super.toString() + butlers.toString() + ", butlerCount=" + butlerCount + "\n";
+    		all += butlers.get(i) + "\n";
     	}
     			
-		return all;
+		return all + "Butler Count = " + butlerCount;
 	}
+
+
 
 	public void reserveButlers() {
     	Butler b = null;
@@ -41,6 +43,7 @@ public class VipRoom extends Room {
         for(int i = 0; i < butlers.size(); i++) {
         	butlers.get(i).calculatePrice();
         	totalFee += butlers.get(i).getPrice();
+        	System.out.println(totalFee);
         }
         
         price = totalFee;
