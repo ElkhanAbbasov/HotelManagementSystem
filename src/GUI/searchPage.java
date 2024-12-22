@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 
 import services.RoomSystem;
@@ -13,13 +14,13 @@ import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JTextArea;
 
 public class searchPage extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField searchField;
-	private JTextField resultField;
-
+	
 	/**
 	 * Launch the application.
 	 */
@@ -39,12 +40,17 @@ public class searchPage extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+	
 	public searchPage() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 616, 433);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
+		JTextArea resultField = new JTextArea();
+		resultField.setBounds(62, 135, 483, 251);
+		
+	
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
@@ -67,13 +73,11 @@ public class searchPage extends JFrame {
 				
 			}
 		});
-		searchButton.setFont(new Font("Tahoma", Font.BOLD, 18));
-		searchButton.setBounds(168, 86, 257, 73);
-		panel.add(searchButton);
 		
-		resultField = new JTextField();
-		resultField.setBounds(79, 176, 445, 188);
+		searchButton.setFont(new Font("Tahoma", Font.BOLD, 18));
+		searchButton.setBounds(168, 86, 257, 37);
+		panel.add(searchButton);
 		panel.add(resultField);
-		resultField.setColumns(10);
+	
 	}
 }

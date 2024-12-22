@@ -206,13 +206,40 @@ public class updateReservations extends JFrame {
 		lblNewLabel_1.setBounds(250, 415, 100, 35);
 		contentPane.add(lblNewLabel_1);
 		
+		JLabel lblNewLabel_2 = new JLabel("");
+		lblNewLabel_2.setBounds(309, 498, 177, 13);
+		contentPane.add(lblNewLabel_2);
+		
 		btnRemoveReservation = new JButton("Remove Reservation");
+		btnRemoveReservation.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String room_num = textField_6.getText();
+				if(RoomSystem.removeReserve(Integer.parseInt(room_num))) {
+					lblNewLabel_2.setText("The reservation deleted");
+				}
+				else {
+					lblNewLabel_2.setText("The reservation not found");
+				}
+				textField_6.setText("");
+			}
+		});
 		btnRemoveReservation.setBounds(250, 453, 250, 35);
 		contentPane.add(btnRemoveReservation);
 		
 		JButton btnClearFields = new JButton("Clear Fields");
+		btnClearFields.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textField.setText("");
+				textField_2.setText("");
+				textField_3.setText("");
+				textField_4.setText("");
+				textField_5.setText("");
+				textField_6.setText("");
+			}
+		});
 		btnClearFields.setBounds(250, 370, 250, 35);
 		contentPane.add(btnClearFields);
+		
 		
 		
 		
