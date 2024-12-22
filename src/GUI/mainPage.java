@@ -63,7 +63,7 @@ public class mainPage extends JFrame {
 				 System.out.println("salam");
 			}
 		});
-		btnShowAllRooms.setBounds(309, 445, 180, 45);
+		btnShowAllRooms.setBounds(275, 445, 160, 45);
 		contentPane.add(btnShowAllRooms);
 		
 		JButton btnShowEmptyRooms = new JButton("Sort by Price");
@@ -72,12 +72,22 @@ public class mainPage extends JFrame {
 				textArea.setText(RoomSystem.sortByPrice());
 			}
 		});
-		btnShowEmptyRooms.setBounds(528, 445, 180, 45);
+		btnShowEmptyRooms.setBounds(447, 445, 122, 45);
 		contentPane.add(btnShowEmptyRooms);
 		
 		
 		textArea.setBounds(90, 42, 618, 400);
 		contentPane.add(textArea);
+		
+		JButton btnNewButton = new JButton("Search");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				searchPage sp = new searchPage();
+				sp.setVisible(true);
+			}
+		});
+		btnNewButton.setBounds(569, 447, 139, 43);
+		contentPane.add(btnNewButton);
 	}
 	private static class __Tmp {
 		private static void __tmp() {

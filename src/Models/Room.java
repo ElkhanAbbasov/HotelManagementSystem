@@ -92,10 +92,10 @@ public abstract class Room implements RoomInterface, Comparable<Room>{
 		String[] endArr = endDate.split("\\.");
 		int days = 0;
 		if(startArr[1] == endArr[1]) {
-			days = Integer.parseInt(startArr[0]) - Integer.parseInt(endArr[0]);
+			days = Integer.parseInt(endArr[0]) - Integer.parseInt(startArr[0]);
 		}else {
-			days += 30 * (Integer.parseInt(startArr[1]) - Integer.parseInt(endArr[1]));
-			days -= Integer.parseInt(startArr[0]) - Integer.parseInt(endArr[0]);
+			days += 30 * (Integer.parseInt(endArr[1]) - Integer.parseInt(startArr[1]));
+			days -= Integer.parseInt(endArr[0]) - Integer.parseInt(startArr[0]);
 		}
 		
 		return days;

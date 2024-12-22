@@ -157,7 +157,7 @@ public class updateReservations extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				RoomSystem.addReserve(Integer.parseInt(textField.getText()), chckbxNewCheckBox.isSelected(), Integer.parseInt(textField_2.getText()), (String) comboBox_1.getSelectedItem(), chckbxNewCheckBox_1.isSelected(), members, (String) comboBox.getSelectedItem(), textField_3.getText(), textField_4.getText(), nums, buts);
-				System.out.println("Ayal petuxdu");
+				
 			}
 		});
 		btnNewButton.setBounds(250, 325, 250, 35);
