@@ -67,12 +67,12 @@ public class loginPage extends JFrame {
 		
 		JLabel emailLabel = new JLabel("Email");
 		emailLabel.setFont(new Font("Mongolian Baiti", Font.BOLD, 35));
-		emailLabel.setBounds(398, 79, 90, 50);
+		emailLabel.setBounds(345, 79, 244, 50);
 		contentPane.add(emailLabel);
 		
 		JLabel passwordLabel = new JLabel("Password");
 		passwordLabel.setFont(new Font("Mongolian Baiti", Font.BOLD, 35));
-		passwordLabel.setBounds(373, 216, 145, 50);
+		passwordLabel.setBounds(334, 223, 244, 50);
 		contentPane.add(passwordLabel);
 		
 		JButton loginButton = new JButton("Login");

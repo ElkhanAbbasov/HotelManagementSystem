@@ -4,6 +4,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import services.RoomSystem;
+
 import javax.swing.JButton;
 import javax.swing.JTextArea;
 import java.awt.event.ActionListener;
@@ -33,6 +36,8 @@ public class mainPage extends JFrame {
 	 * Create the frame.
 	 */
 	public mainPage() {
+		JTextArea textArea = new JTextArea();
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 550);
 		contentPane = new JPanel();
@@ -44,13 +49,19 @@ public class mainPage extends JFrame {
 		JButton btnAddNewRoom = new JButton("Update Reservations");
 		btnAddNewRoom.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				updateReservations ur = new updateReservations();
+				ur.setVisible(true);
 			}
 		});
 		btnAddNewRoom.setBounds(90, 445, 180, 45);
 		contentPane.add(btnAddNewRoom);
 		
 		JButton btnShowAllRooms = new JButton("Show All Reservations");
+		btnShowAllRooms.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				 textArea.setText(RoomSystem.getRooms());
+			}
+		});
 		btnShowAllRooms.setBounds(309, 445, 180, 45);
 		contentPane.add(btnShowAllRooms);
 		
@@ -58,7 +69,7 @@ public class mainPage extends JFrame {
 		btnShowEmptyRooms.setBounds(528, 445, 180, 45);
 		contentPane.add(btnShowEmptyRooms);
 		
-		JTextArea textArea = new JTextArea();
+		
 		textArea.setBounds(90, 42, 618, 400);
 		contentPane.add(textArea);
 	}

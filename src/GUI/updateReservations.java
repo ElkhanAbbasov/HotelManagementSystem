@@ -4,12 +4,19 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Models.Butler;
+import Models.OneRoom;
+import Models.TwoRoom;
+
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class updateReservations extends JFrame {
 
@@ -46,6 +53,8 @@ public class updateReservations extends JFrame {
 	 * Create the frame.
 	 */
 	public updateReservations() {
+		
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 550);
 		contentPane = new JPanel();
@@ -54,9 +63,18 @@ public class updateReservations extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		JButton vipButton = new JButton("Add");
+		vipButton.setBounds(599, 182, 108, 29);
+		contentPane.add(vipButton);
+		vipButton.setVisible(false);
+		
 		JLabel lblNewLabel = new JLabel("Room Number:");
 		lblNewLabel.setBounds(250, 10, 100, 35);
 		contentPane.add(lblNewLabel);
+		
+		JLabel typeLabel = new JLabel("Bed type");
+		typeLabel.setBounds(512, 154, 85, 16);
+		contentPane.add(typeLabel);
 		
 		textField = new JTextField();
 		textField.setBounds(360, 18, 140, 20);
@@ -84,12 +102,38 @@ public class updateReservations extends JFrame {
 		lblRoomType.setBounds(250, 145, 100, 35);
 		contentPane.add(lblRoomType);
 		
+		JComboBox comboBox_1 = new JComboBox();
+		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"Futon", "Water", "Round"}));
+		comboBox_1.setBounds(599, 150, 108, 27);
+		contentPane.add(comboBox_1);
+		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Single Room", "Double Room", "VIP Room"}));
+		comboBox.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(comboBox.getSelectedItem().equals("Single Room")) {
+					comboBox_1.setModel(new DefaultComboBoxModel(OneRoom.getBedType()));
+				} else if(comboBox.getSelectedItem().equals("Double Room")) {
+					comboBox_1.setModel(new DefaultComboBoxModel(TwoRoom.getBedType()));
+				}else {
+					comboBox_1.setModel(new DefaultComboBoxModel(Butler.getType()));
+					typeLabel.setText("Butler Type");
+					vipButton.setVisible(true);
+				}
+			}
+		});
+		
 		comboBox.setBounds(360, 152, 140, 21);
 		contentPane.add(comboBox);
 		
+		
+		
 		JButton btnNewButton = new JButton("Add Reservation");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		btnNewButton.setBounds(250, 325, 250, 35);
 		contentPane.add(btnNewButton);
 		
@@ -136,5 +180,11 @@ public class updateReservations extends JFrame {
 		JButton btnClearFields = new JButton("Clear Fields");
 		btnClearFields.setBounds(250, 370, 250, 35);
 		contentPane.add(btnClearFields);
+		
+		
+		
+		
+		
+		
 	}
 }

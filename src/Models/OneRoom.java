@@ -3,7 +3,7 @@ package Models;
 import java.util.Arrays;
 
 public class OneRoom extends Room {
-    private String[] bedType = {"Futon", "Water", "Round"};
+    private static String[] bedType = {"Futon", "Water", "Round"};
     private String bed;
     
     public OneRoom(int roomNumber, boolean isOccupied, int floorNumber, String roomType, String[] members, String bed, String startDate, String endDate) {
@@ -14,7 +14,17 @@ public class OneRoom extends Room {
     }
 
 
-    @Override
+    public static String[] getBedType() {
+		return bedType;
+	}
+
+
+	public static void setBedType(String[] bedType) {
+		OneRoom.bedType = bedType;
+	}
+
+
+	@Override
     public double calculateFee() {
     	if(bed.equalsIgnoreCase(bedType[0])) {
         	price = (super.findNumberOfDays()) * 60;

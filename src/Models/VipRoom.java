@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 public class VipRoom extends Room {
     private ArrayList<Butler> butlers= new ArrayList<Butler>();
-    private int butlerCount;
-    private String butlerType;
+    private int butlerCount = 0;
+    private String[] butlerType = new String[butlerCount];
     
 
-    public VipRoom(int roomNumber, boolean isOccupied, int floorNumber, String roomType, String[] members, String startDate, String endDate, int butlerCount, String butlerType) {
+    public VipRoom(int roomNumber, boolean isOccupied, int floorNumber, String roomType, String[] members, String startDate, String endDate, int butlerCount, String butlerType[]) {
         super(roomNumber, isOccupied, floorNumber, roomType, members);
        
         this.startDate = startDate;
@@ -25,7 +25,7 @@ public class VipRoom extends Room {
 	public void reserveButlers() {
     	Butler b = null;
         for(int i = 0; i < butlerCount; i++) {
-        	b = new Butler(butlerType);
+        	b = new Butler(butlerType[i]);
         	butlers.add(b);
         }
     }

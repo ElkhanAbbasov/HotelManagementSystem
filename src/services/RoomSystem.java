@@ -14,7 +14,7 @@ public class RoomSystem {
     private static HashSet<Room> reserveList = new HashSet<>();
 
     public static boolean addReserve(int roomNumber, boolean isOccupied, int floorNumber, String bed, boolean extraBed, 
-    		String[] members, String roomType, String startDate, String endDate, int butlerCount, String butlerType) {
+    		String[] members, String roomType, String startDate, String endDate, int butlerCount, String[] butlerType) {
         
     	if(roomType.equals("OneRoom")) {
     		OneRoom room = new OneRoom(roomNumber, isOccupied, floorNumber,roomType, members, bed, startDate, endDate);

@@ -5,9 +5,19 @@ import java.util.Arrays;
 public class TwoRoom extends Room {
     private boolean extraBed;
     private String bed;
-    private String[] bedType = {"Single", "King", "Queen"};
+    private static String[] bedType = {"Single", "King", "Queen"};
 
-    public TwoRoom(int roomNumber, boolean isOccupied, int floorNumber, String roomType, String[] members, String bed, String startDate, String endDate, boolean extraBed) {
+    public static String[] getBedType() {
+		return bedType;
+	}
+
+
+	public static void setBedType(String[] bedType) {
+		TwoRoom.bedType = bedType;
+	}
+
+
+	public TwoRoom(int roomNumber, boolean isOccupied, int floorNumber, String roomType, String[] members, String bed, String startDate, String endDate, boolean extraBed) {
         super(roomNumber, isOccupied, floorNumber, roomType, members);
         this.bed = bed;
         this.startDate = startDate;

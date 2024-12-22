@@ -2,7 +2,7 @@ package Models;
 
 
 public class Butler {
-    private String[] type = {"Party", "Drink", "Concierge"};
+    private static String[] type = {"Party", "Drink", "Concierge"};
     private String typeOfButler;
     private double price;
     public Butler(String typeOfButler) {
@@ -24,6 +24,12 @@ public class Butler {
     }
 
   
+
+	public static String[] getType() {
+		return type;
+	}
+
+
 
 	public void setType(String[] type) {
 		this.type = type;
