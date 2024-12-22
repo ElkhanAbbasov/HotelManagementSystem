@@ -43,7 +43,7 @@ public class TwoRoom extends Room {
 
 	@Override
 	public String toString() {
-		return super.toString() + "TwoRoom [extraBed=" + extraBed + ", bed=" + bed + ", bedType=" + Arrays.toString(bedType) + "]";
+		return super.toString() + "Extra Bed=" + extraBed + "\nBed Type=" + bed + "\n";
 	}
 
 

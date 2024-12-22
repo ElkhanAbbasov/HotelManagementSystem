@@ -19,7 +19,12 @@ public class VipRoom extends Room {
 
     @Override
 	public String toString() {
-		return super.toString() + "VipRoom [butlers=" + butlers + ", butlerCount=" + butlerCount + ", butlerType=" + butlerType + "]";
+    	String all = "Butlers:\n";
+    	for(int i = 0; i < butlers.size(); i++) {
+    		all += super.toString() + butlers.toString() + ", butlerCount=" + butlerCount + "\n";
+    	}
+    			
+		return all;
 	}
 
 	public void reserveButlers() {

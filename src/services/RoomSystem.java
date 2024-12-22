@@ -35,9 +35,9 @@ public class RoomSystem {
     }
     
     public static String getRooms() {
-    	 StringBuilder all = new StringBuilder();
+    	 String all = "hello";
     	    for (Room room : reserveList) {
-    	        all.append(room.toString()).append("\n");
+    	       all += room.toString() + "/n";
     	    }
     	    return all.toString();
     }

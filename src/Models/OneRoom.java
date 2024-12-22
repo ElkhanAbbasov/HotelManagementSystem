@@ -41,7 +41,7 @@ public class OneRoom extends Room {
 
     @Override
 	public String toString() {
-		return super.toString() + "OneRoom [bedType=" + Arrays.toString(bedType) + ", bed=" + bed + "]\n";
+		return super.toString() +  "\nBed Type=" + bed + "\n";
 	}
 
 	@Override

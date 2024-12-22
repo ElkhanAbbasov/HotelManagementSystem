@@ -25,6 +25,13 @@ public class Butler {
 
   
 
+	@Override
+	public String toString() {
+		return "\ntypeOfButler=" + typeOfButler + "\nprice=" + price + "\n";
+	}
+
+
+
 	public static String[] getType() {
 		return type;
 	}

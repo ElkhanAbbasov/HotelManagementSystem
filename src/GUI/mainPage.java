@@ -60,12 +60,18 @@ public class mainPage extends JFrame {
 		btnShowAllRooms.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				 textArea.setText(RoomSystem.getRooms());
+				 System.out.println("salam");
 			}
 		});
 		btnShowAllRooms.setBounds(309, 445, 180, 45);
 		contentPane.add(btnShowAllRooms);
 		
 		JButton btnShowEmptyRooms = new JButton("Sort by Price");
+		btnShowEmptyRooms.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textArea.setText(RoomSystem.sortByPrice());
+			}
+		});
 		btnShowEmptyRooms.setBounds(528, 445, 180, 45);
 		contentPane.add(btnShowEmptyRooms);
 		
