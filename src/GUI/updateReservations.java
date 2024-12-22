@@ -45,6 +45,7 @@ public class updateReservations extends JFrame {
      * Create the frame.
      */
     public updateReservations() {
+    	setTitle("Update Rooms");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setBounds(100, 100, 800, 600);
         contentPane = new JPanel();
@@ -144,7 +145,7 @@ public class updateReservations extends JFrame {
         contentPane.add(btnNewButton);
 
         textField_6 = new JTextField();
-        textField_6.setBounds(360, 423, 140, 20);
+        textField_6.setBounds(250, 423, 250, 20);
         contentPane.add(textField_6);
         textField_6.setColumns(10);
 
