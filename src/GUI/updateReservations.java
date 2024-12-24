@@ -9,6 +9,8 @@ import Models.TwoRoom;
 import services.RoomSystem;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class updateReservations extends JFrame {
 
@@ -125,6 +127,36 @@ public class updateReservations extends JFrame {
         contentPane.add(lblEndDate);
 
         textField_4 = new JTextField();
+        textField_4.addKeyListener(new KeyAdapter() {
+        	@Override
+        	public void keyPressed(KeyEvent e) {
+        		
+        		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+       			 String startDate = textField_3.getText();
+       	            String endDate = textField_4.getText();
+
+       	            if (startDate.compareTo(endDate) > 0) {
+       	                lblFeedback.setText("Error: Start date cannot be later than end date.");
+       	                return;
+       	            }
+
+       	            RoomSystem.addReserve(
+       	                Integer.parseInt(textField.getText()),
+       	                chckbxNewCheckBox.isSelected(),
+       	                Integer.parseInt(textField_2.getText()),
+       	                (String) comboBox_1.getSelectedItem(),
+       	                chckbxNewCheckBox_1.isSelected(),
+       	                members,
+       	                (String) comboBox.getSelectedItem(),
+       	                startDate,
+       	                endDate,
+       	                nums,
+       	                buts
+       	            );
+       	            lblFeedback.setText("Reservation added successfully.");
+       		 }
+        	}
+        });
         textField_4.setBounds(360, 288, 140, 20);
         contentPane.add(textField_4);
         textField_4.setColumns(10);
@@ -148,6 +180,14 @@ public class updateReservations extends JFrame {
         contentPane.add(lblMemberFeedback);
 
         JButton btnNewButton = new JButton("Add Reservation");
+       
+        
+        btnNewButton.addKeyListener(new KeyAdapter() {
+        	
+        	public void keyPressed(KeyEvent e) {
+        		 
+        	}
+        });
         btnNewButton.setBounds(250, 325, 250, 35);
         contentPane.add(btnNewButton);
 
